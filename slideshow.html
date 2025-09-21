@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romain Carton 2026 - Présentation de Campagne</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #dc2626 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 2rem;
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Slide 1 - Title */
+        .slide-1 {
+            background: rgba(255, 255, 255, 0.95);
+            color: #1e40af;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-1 h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+
+        .slide-1 .subtitle {
+            font-size: 1.8rem;
+            color: #dc2626;
+            margin-bottom: 2rem;
+        }
+
+        .slide-1 .flags {
+            font-size: 4rem;
+            margin: 2rem 0;
+        }
+
+        /* Slide 2 - Candidate */
+        .slide-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .candidate-image {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            margin: 0 auto;
+        }
+
+        .candidate-info h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .candidate-info .experience {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        /* Slide 3 - Priorities Overview */
+        .slide-3 h2 {
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .priorities-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .priority-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .priority-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .priority-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .priority-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Slides 4-8 - Individual Priorities */
+        .priority-slide {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 4rem;
+        }
+
+        .priority-slide h2 {
+            font-size: 3rem;
+            color: #1e40af;
+            margin-bottom: 2rem;
+        }
+
+        .priority-slide .icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+        }
+
+        .priority-slide p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .priority-slide ul {
+            text-align: left;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .priority-slide li {
+            margin-bottom: 1rem;
+        }
+
+        /* Slide 9 - Stats */
+        .slide-9 {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            font-size: 1.3rem;
+            color: #1e40af;
+        }
+
+        /* Slide 10 - Les Républicains */
+        .slide-10 {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .party-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .party-logo-large {
+            font-size: 8rem;
+            color: #1e40af;
+        }
+
+        .party-text {
+            text-align: left;
+        }
+
+        .party-text h3 {
+            font-size: 2rem;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .party-text p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+
+        /* Slide 11 - Contact */
+        .slide-11 {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #1e40af;
+        }
+
+        .contact-item h4 {
+            color: #1e40af;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            color: #1e40af;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-button:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: 2rem;
+        }
+
+        .next {
+            right: 2rem;
+        }
+
+        .slide-counter {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            color: #1e40af;
+            font-weight: bold;
+            z-index: 100;
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: #dc2626;
+            transition: width 0.3s ease;
+            z-index: 100;
+        }
+
+        /* Auto-play toggle */
+        .controls {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+
+        .play-pause {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 25px;
+            padding: 1rem 2rem;
+            color: #1e40af;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-pause:hover {
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                width: 95%;
+                padding: 1rem;
+            }
+
+            .slide-1 h1 {
+                font-size: 2.5rem;
+            }
+
+            .slide-1 .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .slide-1 .flags {
+                font-size: 3rem;
+            }
+
+            .slide-2 {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .candidate-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .candidate-info h2 {
+                font-size: 2rem;
+            }
+
+            .candidate-info .experience {
+                font-size: 1.2rem;
+                padding: 0.8rem;
+            }
+
+            .slide-3 h2 {
+                font-size: 2.2rem;
+                margin-bottom: 2rem;
+            }
+
+            .priorities-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .priority-item {
+                padding: 1.5rem;
+            }
+
+            .priority-icon {
+                font-size: 3rem;
+            }
+
+            .priority-title {
+                font-size: 1.1rem;
+            }
+
+            .priority-slide {
+                padding: 2rem 1.5rem;
+            }
+
+            .priority-slide h2 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .priority-slide .icon {
+                font-size: 4rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .priority-slide p {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .priority-slide ul {
+                font-size: 1.1rem;
+                padding-left: 1rem;
+            }
+
+            .priority-slide li {
+                margin-bottom: 0.8rem;
+            }
+
+            .slide-9 h2 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .stat-label {
+                font-size: 1.1rem;
+            }
+
+            .slide-10 h2 {
+                font-size: 2rem;
+            }
+
+            .party-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .party-logo-large {
+                font-size: 6rem;
+            }
+
+            .party-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .party-text p {
+                font-size: 1.1rem;
+            }
+
+            .slide-11 h2 {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-item {
+                padding: 1.5rem;
+            }
+
+            .contact-item h4 {
+                font-size: 1.3rem;
+            }
+
+            .contact-item p {
+                font-size: 1.1rem;
+            }
+
+            .nav-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .prev {
+                left: 1rem;
+            }
+
+            .next {
+                right: 1rem;
+            }
+
+            .slide-counter {
+                bottom: 1rem;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .controls {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .play-pause {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide {
+                width: 98%;
+                padding: 0.8rem;
+            }
+
+            .slide-1 h1 {
+                font-size: 2rem;
+            }
+
+            .slide-1 .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .slide-1 .flags {
+                font-size: 2.5rem;
+            }
+
+            .candidate-image {
+                width: 180px;
+                height: 180px;
+            }
+
+            .candidate-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .candidate-info .experience {
+                font-size: 1rem;
+                padding: 0.6rem;
+            }
+
+            .slide-3 h2 {
+                font-size: 1.8rem;
+            }
+
+            .priority-slide h2 {
+                font-size: 1.8rem;
+            }
+
+            .priority-slide .icon {
+                font-size: 3rem;
+            }
+
+            .priority-slide p {
+                font-size: 1.1rem;
+            }
+
+            .priority-slide ul {
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-label {
+                font-size: 1rem;
+            }
+
+            .party-logo-large {
+                font-size: 4rem;
+            }
+
+            .party-text h3 {
+                font-size: 1.3rem;
+            }
+
+            .party-text p {
+                font-size: 1rem;
+            }
+
+            .contact-item {
+                padding: 1rem;
+            }
+
+            .contact-item h4 {
+                font-size: 1.2rem;
+            }
+
+            .contact-item p {
+                font-size: 1rem;
+            }
+
+            .nav-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            .prev {
+                left: 0.5rem;
+            }
+
+            .next {
+                right: 0.5rem;
+            }
+
+            .slide-counter {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .play-pause {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .controls {
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active slide-1">
+            <div class="flags">🌺 🇫🇷 🇺🇸</div>
+            <h1>Romain CARTON</h1>
+            <div class="subtitle">Conseiller des Français de l'Étranger 2026</div>
+            <p style="font-size: 1.5rem; color: #6b7280; font-style: italic;">
+                "Une expérience partagée, un avenir commun"
+            </p>
+            <div style="margin-top: 2rem; padding: 1rem; background: rgba(30, 64, 175, 0.1); border-radius: 10px;">
+                <strong style="color: #1e40af;">Circonscription Miami - Floride</strong>
+            </div>
+        </div>
+
+        <!-- Slide 2: Candidate Presentation -->
+        <div class="slide slide-2">
+            <div class="candidate-photo">
+                <img src="romain.png" alt="Romain Carton" class="candidate-image">
+            </div>
+            <div class="candidate-info">
+                <h2>Qui suis-je ?</h2>
+                <div class="experience">
+                    <strong>🏠 15 ans en Floride</strong><br>
+                    Installé depuis 2009, je connais votre réalité
+                </div>
+                <div class="experience">
+                    <strong>👨‍👩‍👧‍👦 Père de famille</strong><br>
+                    J'ai vécu vos questionnements sur l'éducation
+                </div>
+                <div class="experience">
+                    <strong>💼 Entrepreneur</strong><br>
+                    Expert en import-export France-USA
+                </div>
+                <div class="experience">
+                    <strong>🎯 Votre représentant</strong><br>
+                    Soutenu par Les Républicains
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: 5 Priorities Overview -->
+        <div class="slide slide-3">
+            <h2>Mes 5 Priorités pour Vous</h2>
+            <div class="priorities-grid">
+                <div class="priority-item">
+                    <div class="priority-icon">💰</div>
+                    <div class="priority-title">Fiscalité Simplifiée</div>
+                </div>
+                <div class="priority-item">
+                    <div class="priority-icon">🏥</div>
+                    <div class="priority-title">Santé Accessible</div>
+                </div>
+                <div class="priority-item">
+                    <div class="priority-icon">🎓</div>
+                    <div class="priority-title">Éducation Française</div>
+                </div>
+                <div class="priority-item">
+                    <div class="priority-icon">📋</div>
+                    <div class="priority-title">Immigration Facilitée</div>
+                </div>
+                <div class="priority-item">
+                    <div class="priority-icon">🏠</div>
+                    <div class="priority-title">Retour Préparé</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Priority 1 -->
+        <div class="slide priority-slide">
+            <div class="icon">💰</div>
+            <h2>Fiscalité & Administration</h2>
+            <p><strong>Stop à la double imposition et aux démarches complexes !</strong></p>
+            <ul>
+                <li>✅ Simplifier vos déclarations fiscales France-USA</li>
+                <li>✅ Lutter contre la double taxation</li>
+                <li>✅ Accompagnement FBAR et FATCA</li>
+                <li>✅ Optimisation fiscale légale</li>
+                <li>✅ Permanences consulaires renforcées</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5: Priority 2 -->
+        <div class="slide priority-slide">
+            <div class="icon">🏥</div>
+            <h2>Santé & Assurance</h2>
+            <p><strong>Vos droits à la santé défendus des deux côtés de l'Atlantique</strong></p>
+            <ul>
+                <li>✅ Coordination Sécurité Sociale France-USA</li>
+                <li>✅ Négociation avec assurances américaines</li>
+                <li>✅ Maintien des droits sociaux</li>
+                <li>✅ Accès aux soins facilité</li>
+                <li>✅ Information sur vos droits médicaux</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: Priority 3 -->
+        <div class="slide priority-slide">
+            <div class="icon">🎓</div>
+            <h2>Éducation & Scolarité</h2>
+            <p><strong>L'avenir de nos enfants commence par une éducation française de qualité</strong></p>
+            <ul>
+                <li>✅ Développer l'offre éducative française</li>
+                <li>✅ Soutien aux écoles du samedi</li>
+                <li>✅ Reconnaissance des diplômes</li>
+                <li>✅ Bourses scolaires accessibles</li>
+                <li>✅ Programmes bilingues renforcés</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7: Priority 4 -->
+        <div class="slide priority-slide">
+            <div class="icon">📋</div>
+            <h2>Immigration & Résidence</h2>
+            <p><strong>Vos démarches administratives simplifiées et accompagnées</strong></p>
+            <ul>
+                <li>✅ Accompagnement visa et green card</li>
+                <li>✅ Procédures de naturalisation</li>
+                <li>✅ Défense de vos droits</li>
+                <li>✅ Simplification administrative</li>
+                <li>✅ Permanences juridiques</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Priority 5 -->
+        <div class="slide priority-slide">
+            <div class="icon">🏠</div>
+            <h2>Préparation du Retour</h2>
+            <p><strong>Votre retour en France organisé et serein</strong></p>
+            <ul>
+                <li>✅ Réintégration professionnelle</li>
+                <li>✅ Portabilité des droits sociaux</li>
+                <li>✅ Scolarisation des enfants</li>
+                <li>✅ Rapatriement des avoirs</li>
+                <li>✅ Fiscalité du retour</li>
+            </ul>
+        </div>
+
+        <!-- Slide 9: Statistics -->
+        <div class="slide slide-9">
+            <h2 style="color: #1e40af; font-size: 3rem; margin-bottom: 2rem;">Les Français de Floride en Chiffres</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">25K+</div>
+                    <div class="stat-label">Français en Floride</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Bureaux de vote</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Ans d'expérience USA</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Priorités concrètes</div>
+                </div>
+            </div>
+            <p style="margin-top: 3rem; font-size: 1.5rem; color: #6b7280;">
+                <strong>Miami • Orlando • Tampa • West Palm Beach</strong><br>
+                Une communauté unie, une voix forte !
+            </p>
+        </div>
+
+        <!-- Slide 10: Les Républicains -->
+        <div class="slide slide-10">
+            <h2 style="color: #1e40af; font-size: 3rem; margin-bottom: 2rem;">Soutenu par Les Républicains</h2>
+            <div class="party-section">
+                <div class="party-logo-large">🇫🇷</div>
+                <div class="party-text">
+                    <h3>Des valeurs partagées</h3>
+                    <p>✓ Famille et transmission</p>
+                    <p>✓ Entrepreneuriat et initiative</p>
+                    <p>✓ Rayonnement de la France</p>
+                    <p>✓ Sécurité et protection</p>
+                    <p>✓ Liberté et responsabilité</p>
+                </div>
+                <div class="party-logo-large" style="color: #dc2626;">LR</div>
+            </div>
+            <p style="margin-top: 3rem; font-size: 1.3rem; color: #6b7280; font-style: italic;">
+                "Une vision politique claire au service des Français de l'étranger"
+            </p>
+        </div>
+
+        <!-- Slide 11: Contact & Action -->
+        <div class="slide slide-11">
+            <h2 style="color: #1e40af; font-size: 3rem; margin-bottom: 2rem;">Ensemble, Agissons !</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>📧 Contact</h4>
+                    <p>contact@romaincarton2026.com</p>
+                    <p>+1 (305) 555-VOTE</p>
+                </div>
+                <div class="contact-item">
+                    <h4>🌐 En ligne</h4>
+                    <p>www.romaincarton2026.com</p>
+                    <p>Newsletter hebdomadaire</p>
+                </div>
+                <div class="contact-item">
+                    <h4>🗳️ Élections</h4>
+                    <p><strong>Mai 2026</strong></p>
+                    <p>Votre vote compte !</p>
+                </div>
+            </div>
+            <div style="margin-top: 3rem; padding: 2rem; background: rgba(30, 64, 175, 0.1); border-radius: 15px;">
+                <h3 style="color: #1e40af; margin-bottom: 1rem;">🌺 Rejoignez le mouvement !</h3>
+                <p style="font-size: 1.3rem; color: #2c3e50;">
+                    <strong>"Une expérience partagée, un avenir commun"</strong><br>
+                    Romain Carton - Votre conseiller des Français de l'étranger
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <button class="nav-button prev" onclick="changeSlide(-1)">‹</button>
+        <button class="nav-button next" onclick="changeSlide(1)">›</button>
+        
+        <!-- Controls -->
+        <div class="controls">
+            <button class="play-pause" onclick="toggleAutoPlay()" id="playPauseBtn">⏸️ Pause</button>
+        </div>
+
+        <!-- Progress and Counter -->
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">11</span>
+        </div>
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let autoPlay = true;
+        let autoPlayInterval;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            updateProgressBar();
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        }
+
+        function toggleAutoPlay() {
+            const btn = document.getElementById('playPauseBtn');
+            if (autoPlay) {
+                clearInterval(autoPlayInterval);
+                btn.textContent = '▶️ Play';
+                autoPlay = false;
+            } else {
+                startAutoPlay();
+                btn.textContent = '⏸️ Pause';
+                autoPlay = true;
+            }
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                changeSlide(1);
+            }, 4000); // 4 seconds per slide
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === ' ') {
+                e.preventDefault();
+                toggleAutoPlay();
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        updateProgressBar();
+        startAutoPlay();
+    </script>
+</body>
+</html>
