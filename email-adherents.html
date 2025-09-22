@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annonce de Candidature - Romain Carton 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+
+        .email-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #dc2626 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 20px;
+            border-radius: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .logo-text {
+            text-align: left;
+        }
+
+        .logo-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1e40af;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #dc2626;
+            letter-spacing: 1px;
+        }
+
+        .party-logo {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .party-logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+        }
+
+        .announcement-badge {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            color: #1e40af;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .paragraph {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: linear-gradient(45deg, #f8fafc, #e2e8f0);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 4px solid #1e40af;
+        }
+
+        .highlight-box h3 {
+            color: #1e40af;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-box p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .section-title {
+            color: #1e40af;
+            font-size: 1.6rem;
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topics-list {
+            background: #f8fafc;
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .topics-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .topics-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .topics-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .cta-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .signature {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .signature-content {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .signature-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #1e40af;
+            object-fit: cover;
+        }
+
+        .signature-text {
+            flex: 1;
+        }
+
+        .signature-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+
+        .signature-title {
+            font-size: 1.1rem;
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .signature-tagline {
+            font-style: italic;
+            color: #6b7280;
+        }
+
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-item {
+            font-size: 0.95rem;
+        }
+
+        .footer-item strong {
+            color: #f59e0b;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+        }
+
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 0;
+            }
+
+            .header, .content, .footer {
+                padding: 20px;
+            }
+
+            .logo-icons {
+                padding: 8px 15px;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .logo-name {
+                font-size: 1.5rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .signature-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .signature-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header avec logo -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo-icons">
+                    <div class="logo-icon">🌺</div>
+                    <div class="logo-icon">🇫🇷</div>
+                    <div class="logo-icon">🇺🇸</div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-name">Romain CARTON</div>
+                    <div class="logo-subtitle">CONSEILLER 2026</div>
+                </div>
+            </div>
+            <div class="party-logo">
+                <span class="party-logo-text">🇫🇷 LES RÉPUBLICAINS</span>
+            </div>
+            <div class="announcement-badge">
+                📣 ANNONCE OFFICIELLE DE CANDIDATURE
+            </div>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="content">
+            <div class="greeting">
+                Chers adhérents LR,
+            </div>
+
+            <div class="paragraph">
+                <strong>J'ai l'honneur d'avoir été nommé pour représenter Les Républicains lors des prochaines élections consulaires, qui se tiendront en mai 2026 pour la circonscription consulaire de Miami.</strong>
+            </div>
+
+            <div class="paragraph">
+                Je tiens à remercier chaleureusement <strong>Monsieur le Sénateur Ronan Le Gleut</strong> pour son soutien.
+            </div>
+
+            <div class="highlight-box">
+                <p>
+                    Cette nomination est à la fois un honneur et une grande responsabilité. À travers cette opportunité, je souhaite apporter du <strong>changement et du renouveau</strong> au sein de notre circonscription, en plaçant l'écoute et l'action au cœur de mon engagement.
+                </p>
+            </div>
+
+            <h2 class="section-title">👔 Mon rôle en tant qu'élu consulaire</h2>
+            
+            <div class="paragraph">
+                En tant qu'élu, ma mission sera de représenter les Français installés à l'étranger, d'écouter leurs préoccupations et de les représenter auprès du consulat et de l'ambassade. Ensemble, nous travaillerons sur des sujets essentiels tels que :
+            </div>
+
+            <div class="topics-list">
+                <ul>
+                    <li>Les aides sociales</li>
+                    <li>L'emploi</li>
+                    <li>La santé</li>
+                    <li>L'éducation</li>
+                    <li>L'aide pour les personnes âgées</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">🤝 Rejoignez notre équipe !</h2>
+            
+            <div class="paragraph">
+                Pour bâtir une liste électorale forte et représentative, <strong>je recherche des volontaires motivés</strong>. Votre rôle, si vous nous rejoignez, pourra consister à :
+            </div>
+
+            <div class="topics-list">
+                <ul>
+                    <li>Animer des cercles de discussion</li>
+                    <li>Participer à des événements communautaires</li>
+                    <li>Promouvoir notre liste et nos valeurs</li>
+                </ul>
+            </div>
+
+            <div class="paragraph">
+                Ces élections se dérouleront <strong>en ligne</strong>, et seuls les Français inscrits sur les registres des Français de l'étranger pourront y participer.
+            </div>
+
+            <h2 class="section-title">🇫🇷 Une aventure civique et collective</h2>
+            
+            <div class="paragraph">
+                Cette campagne est une belle opportunité de rencontres, de renforcement de notre réseau et de défense de nos valeurs communes. Je suis également très intéressé par vos retours : <strong>quels sont les sujets qui vous tiennent à cœur ? Quelles sont vos attentes ?</strong> N'hésitez pas à me les communiquer dès maintenant, afin que je puisse me mettre au travail dès maintenant.
+            </div>
+
+            <div class="cta-box">
+                <h3>🚀 Engagez-vous à mes côtés !</h3>
+                <p>Si vous êtes intéressés pour rejoindre notre équipe ou simplement pour échanger, n'hésitez pas à me contacter.</p>
+                <a href="mailto:romain.carton@conseiller-consulaire.org" class="cta-button">Me Contacter</a>
+            </div>
+
+            <div class="paragraph">
+                En attendant votre retour, chers adhérents LR, je vous remercie pour votre soutien et votre engagement.
+            </div>
+
+            <!-- Signature -->
+            <div class="signature">
+                <div class="signature-content">
+                    <img src="https://conseiller-consulaire.org/images/romain-carton.png" alt="Romain Carton" class="signature-photo">
+                    <div class="signature-text">
+                        <div class="signature-name">Romain Carton</div>
+                        <div class="signature-title">Candidat Conseiller des Français de l'Étranger</div>
+                        <div class="signature-tagline">"Une expérience partagée, un avenir commun"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <div class="footer-item">
+                    <strong>📧 Contact</strong>
+                    romain.carton@conseiller-consulaire.org
+                </div>
+                <div class="footer-item">
+                    <strong>🌐 Site Web</strong>
+                    www.conseiller-consulaire.com
+                </div>
+                <div class="footer-item">
+                    <strong>📍 Circonscription</strong>
+                    Miami - Floride
+                </div>
+                <div class="footer-item">
+                    <strong>🗳️ Élections</strong>
+                    Mai 2026
+                </div>
+            </div>
+            
+            <div class="footer-disclaimer">
+                Email envoyé par Romain Carton, candidat Les Républicains aux élections consulaires 2026.<br>
+                Circonscription consulaire de Miami (Floride, Porto Rico, Îles Vierges, Bahamas).
+            </div>
+        </div>
+    </div>
+</body>
+</html>
